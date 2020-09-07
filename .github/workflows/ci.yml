@@ -15,7 +15,8 @@ jobs:
         run: sudo xcode-select -s /Applications/Xcode_12.app
       - name: package
         run: make package
-      - name: appendix
-        run: ruby scripts/reduce-logs.rb 'make -C appendix'
-      - name: tests
-        run: ruby scripts/reduce-logs.rb 'make -C tests'
+      - name: upload
+        uses: actions/upload-artifact@v2.1.4
+        with:
+          name: Karabiner-Elements-12.90.12.dmg
+          path: Karabiner-Elements-12.90.12.dmg
